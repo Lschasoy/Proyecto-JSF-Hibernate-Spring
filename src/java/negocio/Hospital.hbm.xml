@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 08-may-2015 9:34:13 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="negocio.Hospital" table="HOSPITAL" schema="SYSTEM">
+        <id name="hospitalCod" type="byte">
+            <column name="HOSPITAL_COD" precision="2" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="19" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="DIRECCION" length="20" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="TELEFONO" length="9" />
+        </property>
+        <property name="numCama" type="java.lang.Short">
+            <column name="NUM_CAMA" precision="3" scale="0" />
+        </property>
+        <set name="doctors" table="DOCTOR" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="HOSPITAL_COD" precision="2" scale="0" />
+            </key>
+            <one-to-many class="negocio.Doctor" />
+        </set>
+    </class>
+</hibernate-mapping>
