@@ -37,7 +37,21 @@
                             </h:commandLink>    
                     </h:column>
                 </h:dataTable>
-              </h:form>                
+              </h:form>     
+                
+                
+                <h:form id="formHospital">
+                    <h:message id="messagelist" style="error" showSummary="true" showDetail="false" />
+                    <h:panelGrid columns="3">
+                        Nombre: <h:inputText id="name" value="#{hospitalBeans.nombre}" size="20" required="true" label="Nombre"/>
+                        <h:message for="name" style="color:red" />
+                        Direccion: <h:inputText id="name" value="#{hospitalBeans.direccion}" size="20" required="true" label="Direccion"/>
+                        <h:message for="name" style="color:red" />
+                        Telefono: <h:inputText id="name" value="#{hospitalBeans.telefono}" size="20" required="true" label="Nombre"/>
+                        <h:message for="name" style="color:red" />
+                    </h:panelGrid>
+                    <h:commandButton id="btn_guardar" value="Guardar" action="#{hospitalBeans.addHospital}"
+                </h:form> 
             </h:body>        
     </f:view>    
 </html>

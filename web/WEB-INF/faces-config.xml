@@ -14,7 +14,7 @@
         <managed-bean-class>bean.BeanHospital</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
         <managed-property>
-            <property-name>hospitalBO</property-name>
+            <property-name>hospitalBo</property-name>
             <value>#{hospitalBO}</value>
         </managed-property>    
     </managed-bean>    
