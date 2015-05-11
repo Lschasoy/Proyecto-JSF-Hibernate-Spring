@@ -12,12 +12,22 @@
     <context:component-scan base-package="/I-SivHSJ"/>
     
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+    
+        <!-- DAOS: Capa de persitencia -->
+    <bean id="hospitalDao" class="dao.HospitalDAO">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+         <!-- BOS -->
+    <bean id="hospitalBo" class="bo.HospitalBO">
+        <property name="hospitalDAO" ref="hospitalDao"/>
+    </bean> 
+    
 
     
     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <props>
-                <prop key="index.htm">indexController</prop>
+                <prop key="index.htm">indexController</prop>                
             </props>
         </property>
     </bean>
@@ -42,13 +52,6 @@
 
     </bean>
     
-    <!-- DAOS: Capa de persitencia -->
-   <bean id="hospitalDAO" class="dao.HospitalDAO">
-       <property name="sessionFactory" ref="sessionFactory"/>
-   </bean>
-   <!-- BOS -->
-   <bean id="hospitalBO" class="bo.HospitalBO">
-       <property name="hospitalDAO" ref="hospitalDAO"/>
-   </bean> 
+  
 
 </beans>

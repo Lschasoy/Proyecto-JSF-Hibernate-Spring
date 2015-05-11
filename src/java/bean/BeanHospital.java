@@ -5,6 +5,9 @@ import javax.faces.component.html.HtmlDataTable;
 import negocio.Hospital;
 import bo.HospitalBO;
 
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+
 /**
  *
  * @author Leonardo Siverio Chasoy
@@ -15,6 +18,13 @@ public class BeanHospital implements java.io.Serializable{
     private HtmlDataTable tabla;
     private boolean seleccion;
     private HospitalBO hospitalBO;
+    
+    
+    
+    public void seleccionLista(){
+        Hospital h = (Hospital)tabla.getRowData();
+        this.seleccion = true;
+    }
 
     
     /*********** LISTA ****************/

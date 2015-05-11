@@ -30,6 +30,12 @@
                         </f:facet>
                         <h:outputText value="#{item.direccion}"/>
                     </h:column>
+                       <h:column>
+                        
+                            <h:commandLink id="edit" action="#{hospitalBeans.seleccionLista}" immediate="true">                        
+                                <h:outputText value="EDITAR"/>
+                            </h:commandLink>    
+                    </h:column>
                 </h:dataTable>
               </h:form>                
             </h:body>        
