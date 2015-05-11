@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-may-2015 12:13:27 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="negocio.Plantilla" table="PLANTILLA" schema="SYSTEM">
+        <id name="empleadoNo" type="short">
+            <column name="EMPLEADO_NO" precision="4" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sala" class="negocio.Sala" fetch="select">
+            <column name="HOSPITAL_COD" precision="2" scale="0" not-null="true" />
+            <column name="SALA_COD" precision="2" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="apellido" type="string">
+            <column name="APELLIDO" length="15" not-null="true" />
+        </property>
+        <property name="funcion" type="string">
+            <column name="FUNCION" length="10" />
+        </property>
+        <property name="turno" type="string">
+            <column name="TURNO" length="1" />
+        </property>
+        <property name="salario" type="java.lang.Long">
+            <column name="SALARIO" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>
